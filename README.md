@@ -1,2 +1,3 @@
 # RSDbot
-RSDbot for Rolling Sky DIscord
+
+important! : config file is not in here.
