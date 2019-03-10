@@ -34,18 +34,6 @@ module.exports = function (Client) {
                 return;
             }
             else {
-                const time = new Date();
-                console.log((time.getMonth() + 1) + "m " + time.getDate() + "d " + time.getHours() + "h " + time.getMinutes() + "m " + time.getSeconds() + "s ");
-                console.log("message : " + message.content);
-                console.log("author : " + message.author.username);
-                console.log("channel name : " + message.channel.name);
-                console.log("___________________________________________________________________________")
-
-                Client.channels.get("543553907536953344").send(`time : ${time.getMonth() + 1}m ${time.getDate()}d ${time.getHours()}h ${time.getMinutes()}m ${time.getSeconds()}s
-message content : ${message.content}
-author : ${message.author.username}
-channel name : ${message.channel.name}
----------------------------------------------------------------------------`);
                 const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
                 const givenCommand = args.shift().toLowerCase();
                 for (const command of commands) {
