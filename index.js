@@ -8,7 +8,6 @@ const Log = require('./log.js')
 const Translate = require('./translate.js');
 const Grammar = require('./grammar.js');
 const Suggestion = require('./suggestion.js')
-const connection = mongoose.createConnection('mongodb+srv://bot:ssj0823@iantbot-xvcql.mongodb.net/test?retryWrites=true&w=majority')
 
 const serversettingsSchema = new mongoose.Schema({
     serverId: String,
