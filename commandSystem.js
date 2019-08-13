@@ -24,11 +24,6 @@ module.exports = function (Client) {
 
         if (message.channel.id == 400983101507108876) return;
 
-        creditsModel.findOne({ userId: message.author.id }).then(user => {
-            if (Date.now() - user.lastWarn < 86400000 * user.warn) {
-                return;
-            }
-            else {
                 const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
                 const givenCommand = args.shift().toLowerCase();
                 for (const command of commands) {
@@ -36,7 +31,5 @@ module.exports = function (Client) {
                         return command.process(message);
                     }
                 }
-            }
-        });
     });
 }

@@ -1,3 +1,2 @@
-# RSDbot
-
-important! : config file is not in here.
+# iantBot
+iant Discord bot for managing server

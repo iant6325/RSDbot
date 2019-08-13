@@ -22,18 +22,13 @@ module.exports = function (Client) {
 
         if (message.content.indexOf(config.prefix) != 0) return;
 
-        creditsModel.findOne({ userId: message.author.id }).then(user => {
-            if (Date.now() - user.lastWarn < 86400000 * user.warn) {
-                let remainingTime = getReadableTime(Date.now() - user.lastWarn, user.warn);
-                console.log('checked');
-                Client.channels.get(message.channel.id).send(`${message.author.username} got warned in last ${user.warn} days You can't use anything using the bot!
-**Remaining time**: ${remainingTime.d} days ${remainingTime.h} hours ${remainingTime.m} minutes ${remainingTime.s} seconds`)
-                    .then(msg =>
-                        msg.delete(2500)
-                    );
-                return;
-            }
-            else {
+                const time = new Date();
+                console.log((time.getMonth() + 1) + "m " + time.getDate() + "d " + time.getHours() + "h " + time.getMinutes() + "m " + time.getSeconds() + "s ");
+                console.log("message : " + message.content);
+                console.log("author : " + message.author.username);
+                console.log("channel name : " + message.channel.name);
+                console.log("___________________________________________________________________________")
+
                 const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
                 const givenCommand = args.shift().toLowerCase();
                 for (const command of commands) {
@@ -41,8 +36,6 @@ module.exports = function (Client) {
                         return command.process(message);
                     }
                 }
-            }
-        });
 
     });
 }
